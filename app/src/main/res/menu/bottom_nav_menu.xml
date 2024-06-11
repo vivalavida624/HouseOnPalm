@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_brokers"
+        android:icon="@drawable/round_groups_24"
+        android:title="@string/title_brokers" />
+
+    <item
+        android:id="@+id/navigation_favourite"
+        android:icon="@drawable/favorite_24px"
+        android:title="@string/title_favourite" />
+
+    <item
+        android:id="@+id/navigation_calculator"
+        android:icon="@drawable/round_calculate_24"
+        android:title="@string/title_calculator" />
+
+    <item
+        android:id="@+id/navigation_more"
+        android:icon="@drawable/round_menu_24"
+        android:title="@string/title_more" />
+</menu>
