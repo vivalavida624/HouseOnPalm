@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">HouseOnPlam</string>
+    <string name="title_home">Home</string>
+    <string name="title_brokers">Brokers</string>
+    <string name="title_favourite">Favourite</string>
+    <string name="title_calculator">Calculator</string>
+    <string name="title_more">More</string>
+</resources>
