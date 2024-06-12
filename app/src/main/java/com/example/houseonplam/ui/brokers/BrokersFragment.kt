@@ -67,7 +67,8 @@ class BrokersFragment : Fragment() {
         return listOf(
             Broker("Broker Name 1"),
             Broker("Broker Name 2"),
-            // 添加更多broker数据
+            Broker("Broker Name 3"),
+            Broker("Broker Name 4") // 添加更多broker数据
         )
     }
 }
