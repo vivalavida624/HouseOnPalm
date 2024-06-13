@@ -7,7 +7,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.houseonplam.R
 
-class BrokerAdapter(private var brokers: List<Broker>) : RecyclerView.Adapter<BrokerAdapter.BrokerViewHolder>() {
+class BrokerAdapter(
+    private var brokers: List<Broker>,
+    private val onItemClicked: (Broker) -> Unit
+) : RecyclerView.Adapter<BrokerAdapter.BrokerViewHolder>() {
 
     class BrokerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val brokerNameTextView: TextView = itemView.findViewById(R.id.brokerNameTextView)
@@ -19,7 +22,11 @@ class BrokerAdapter(private var brokers: List<Broker>) : RecyclerView.Adapter<Br
     }
 
     override fun onBindViewHolder(holder: BrokerViewHolder, position: Int) {
-        holder.brokerNameTextView.text = brokers[position].name
+        val broker = brokers[position]
+        holder.brokerNameTextView.text = broker.name
+        holder.itemView.setOnClickListener {
+            onItemClicked(broker)
+        }
     }
 
     override fun getItemCount(): Int {

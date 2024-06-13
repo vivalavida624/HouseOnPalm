@@ -8,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.houseonplam.R
 import com.example.houseonplam.databinding.FragmentBrokersBinding
 
 class BrokersFragment : Fragment() {
@@ -19,8 +21,7 @@ class BrokersFragment : Fragment() {
     private lateinit var brokerList: List<Broker>
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         val brokersViewModel =
@@ -34,7 +35,10 @@ class BrokersFragment : Fragment() {
 
         // 设置RecyclerView
         binding.brokersRecyclerView.layoutManager = LinearLayoutManager(context)
-        brokerAdapter = BrokerAdapter(brokerList)
+        brokerAdapter = BrokerAdapter(brokerList) { broker ->
+            val action = BrokersFragmentDirections.actionBrokersFragmentToBrokerDetailFragment(broker.name)
+            findNavController().navigate(action)
+        }
         binding.brokersRecyclerView.adapter = brokerAdapter
 
         // 设置搜索功能
@@ -68,7 +72,8 @@ class BrokersFragment : Fragment() {
             Broker("Broker Name 1"),
             Broker("Broker Name 2"),
             Broker("Broker Name 3"),
-            Broker("Broker Name 4") // 添加更多broker数据
+            Broker("Broker Name 4")
+            // 添加更多broker数据
         )
     }
 }
