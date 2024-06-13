@@ -3,6 +3,8 @@ package com.example.houseonplam.ui.calculator
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 class CalculatorViewModel: ViewModel() {
 
@@ -11,9 +13,11 @@ class CalculatorViewModel: ViewModel() {
     }
     val text: LiveData<String> = _text
 
-    fun calcMonthlyPayment(salePrice: Double, downPayment: Double, interestRate: Double): Double {
+    fun calcMonthlyPayment(salePrice: Double, downPayment: Double, interestRate: Double): BigDecimal? {
         // assuming 25 years for the loan and payments are monthly (12 per year)
-        return ((salePrice - downPayment) * (interestRate / 1200)) / (1 - (1 / (Math.pow(1 + (interestRate / 1200), 300.0))))
+        val interestRatePerc = interestRate / 100
+        var monthlyPay = ((salePrice - downPayment) * (interestRatePerc / 12)) / (1 - (1 / (Math.pow(1 + (interestRatePerc / 12), 300.0))))
+        return BigDecimal(monthlyPay).setScale(2, RoundingMode.CEILING)
     }
 
     /*
