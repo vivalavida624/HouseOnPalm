@@ -31,6 +31,37 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        navView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_home -> {
+                    navController.popBackStack(R.id.navigation_home, false)
+                    navController.navigate(R.id.navigation_home)
+                    true
+                }
+                R.id.navigation_brokers -> {
+                    navController.popBackStack(R.id.navigation_brokers, false)
+                    navController.navigate(R.id.navigation_brokers)
+                    true
+                }
+                R.id.navigation_favourite -> {
+                    navController.popBackStack(R.id.navigation_favourite, false)
+                    navController.navigate(R.id.navigation_favourite)
+                    true
+                }
+                R.id.navigation_calculator -> {
+                    navController.popBackStack(R.id.navigation_calculator, false)
+                    navController.navigate(R.id.navigation_calculator)
+                    true
+                }
+                R.id.navigation_more -> {
+                    navController.popBackStack(R.id.navigation_more, false)
+                    navController.navigate(R.id.navigation_more)
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

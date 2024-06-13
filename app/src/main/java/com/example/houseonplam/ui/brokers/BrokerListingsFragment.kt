@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.houseonplam.databinding.FragmentBrokerListingsBinding
+import com.example.houseonplam.ui.brokers.BrokerListingsFragmentDirections
 import com.example.houseonplam.models.Listing
 
 class BrokerListingsFragment : Fragment() {
