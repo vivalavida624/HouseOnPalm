@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />
+        android:title="@string/title_home"
+        app:iconTint="@drawable/selector_nav_item" />
 
     <item
         android:id="@+id/navigation_brokers"
         android:icon="@drawable/round_groups_24"
-        android:title="@string/title_brokers" />
+        android:title="@string/title_brokers"
+        app:iconTint="@drawable/selector_nav_item" />
 
     <item
         android:id="@+id/navigation_favourite"
         android:icon="@drawable/favorite_24px"
-        android:title="@string/title_favourite" />
+        android:title="@string/title_favourite"
+        app:iconTint="@drawable/selector_nav_item" />
 
     <item
         android:id="@+id/navigation_calculator"
         android:icon="@drawable/round_calculate_24"
-        android:title="@string/title_calculator" />
+        android:title="@string/title_calculator"
+        app:iconTint="@drawable/selector_nav_item" />
 
     <item
         android:id="@+id/navigation_more"
         android:icon="@drawable/round_menu_24"
-        android:title="@string/title_more" />
+        android:title="@string/title_more"
+        app:iconTint="@drawable/selector_nav_item" />
 </menu>
