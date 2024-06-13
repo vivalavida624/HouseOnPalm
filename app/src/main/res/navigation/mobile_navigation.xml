@@ -59,7 +59,16 @@
         android:id="@+id/navigation_broker_listings"
         android:name="com.example.houseonplam.ui.brokers.BrokerListingsFragment"
         android:label="Broker Listings"
-        tools:layout="@layout/fragment_broker_listings" />
+        tools:layout="@layout/fragment_broker_listings">
+        <argument
+            android:name="brokerId"
+            app:argType="string" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_brokerDetailFragment_to_brokerListingsFragment"
+        app:destination="@id/navigation_broker_listings" />
+
 
 
 </navigation>
