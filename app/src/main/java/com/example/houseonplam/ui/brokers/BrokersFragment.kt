@@ -36,7 +36,7 @@ class BrokersFragment : Fragment() {
         // 设置RecyclerView
         binding.brokersRecyclerView.layoutManager = LinearLayoutManager(context)
         brokerAdapter = BrokerAdapter(brokerList) { broker ->
-            val action = BrokersFragmentDirections.actionBrokersFragmentToBrokerDetailFragment(broker.name)
+            val action = BrokersFragmentDirections.actionBrokersFragmentToBrokerDetailFragment(broker.name, "Broker Title Placeholder")
             findNavController().navigate(action)
         }
         binding.brokersRecyclerView.adapter = brokerAdapter

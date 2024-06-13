@@ -45,9 +45,12 @@
         android:label="Broker Detail"
         tools:layout="@layout/fragment_broker_detail">
         <argument
-            android:name="brokerId"
-            app:argType="string"
-            android:defaultValue="" />
+            android:name="brokerName"
+            app:argType="string" />
+        <argument
+            android:name="brokerTitle"
+            app:argType="string" />
     </fragment>
 
 </navigation>
+

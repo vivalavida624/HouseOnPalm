@@ -12,6 +12,63 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="Broker Name"
+        android:textSize="20sp"
+        android:padding="16dp" />
+
+    <TextView
+        android:id="@+id/brokerTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/brokerNameTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Broker Title"
+        android:textSize="16sp"
+        android:padding="16dp" />
+
+    <!-- 添加更多内容 -->
+    <TextView
+        android:id="@+id/marketListings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/brokerTitleTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="On Market Listings"
+        android:textSize="16sp"
+        android:padding="16dp" />
+
+    <TextView
+        android:id="@+id/informationRequest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/marketListings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Information Request"
+        android:textSize="16sp"
+        android:padding="16dp" />
+
+    <TextView
+        android:id="@+id/contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/informationRequest"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Contact"
+        android:textSize="16sp"
+        android:padding="16dp" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/contact"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Email"
+        android:textSize="16sp"
         android:padding="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
