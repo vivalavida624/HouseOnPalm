@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.houseonplam.R
 import com.example.houseonplam.databinding.FragmentBrokersBinding
 
 class BrokersFragment : Fragment() {
@@ -36,7 +35,10 @@ class BrokersFragment : Fragment() {
         // 设置RecyclerView
         binding.brokersRecyclerView.layoutManager = LinearLayoutManager(context)
         brokerAdapter = BrokerAdapter(brokerList) { broker ->
-            val action = BrokersFragmentDirections.actionBrokersFragmentToBrokerDetailFragment(broker.name, "Broker Title Placeholder")
+            val action = BrokersFragmentDirections.actionBrokersFragmentToBrokerDetailFragment(
+                brokerName = broker.name,
+                brokerTitle = "Broker Title Placeholder" // 示例数据
+            )
             findNavController().navigate(action)
         }
         binding.brokersRecyclerView.adapter = brokerAdapter
