@@ -11,8 +11,9 @@ class CalculatorViewModel: ViewModel() {
     }
     val text: LiveData<String> = _text
 
-    fun calcMonthlyPayment(salePrice: Int, downPayment: Int, interestRate: Double): Double {
-        return ((salePrice - downPayment) * (interestRate / 12) * (1 + (interestRate / 12))) / ((1 + (interestRate / 12)) - 1)
+    fun calcMonthlyPayment(salePrice: Double, downPayment: Double, interestRate: Double): Double {
+        // assuming 25 years for the loan and payments are monthly (12 per year)
+        return ((salePrice - downPayment) * (interestRate / 1200)) / (1 - (1 / (Math.pow(1 + (interestRate / 1200), 300.0))))
     }
 
     /*

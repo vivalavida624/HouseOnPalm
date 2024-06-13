@@ -30,15 +30,15 @@ class CalculatorFragment(): Fragment() {
         val salePrice : TextView = binding.editTextSalePrice
         val downPayment: TextView = binding.editTextDownPayment
         val interestRate: TextView = binding.editTextInterestRate
-        val amortization: Int = binding.seekBarAmortization.toString().toInt()
-        val frequency: Int = binding.seekBarFrequency.toString().toInt()
+        //val amortization: Int = binding.seekBarAmortization.toString().toInt()
+        //val frequency: Int = binding.seekBarFrequency.toString().toInt()
         var monthly: TextView = binding.textMonthlyPaymentDisplay
         val buttonCalculate: Button = binding.buttonCalculate
 
         buttonCalculate.setOnClickListener {
             monthly.text = calculatorViewModel.calcMonthlyPayment(
-                salePrice.text.toString().toInt(),
-                downPayment.text.toString().toInt(),
+                salePrice.text.toString().toDouble(),
+                downPayment.text.toString().toDouble(),
                 interestRate.text.toString().toDouble()
             ).toString()
         }

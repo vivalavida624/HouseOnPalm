@@ -63,7 +63,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number"/>
+                    android:inputType="numberDecimal"/>
             </LinearLayout>
 
             <LinearLayout
@@ -84,7 +84,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="numberDecimal" />
             </LinearLayout>
 
             <LinearLayout
@@ -108,10 +108,18 @@
                     android:inputType="numberDecimal" />
             </LinearLayout>
 
+            <Button
+                android:id="@+id/buttonCalculate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Calculate Monthly Payment" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:orientation="vertical">
+
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -141,7 +149,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="78dp"
+                android:layout_height="134dp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -167,17 +175,10 @@
                 <SeekBar
                     android:id="@+id/seekBarFrequency"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp" />
+                    android:layout_height="36dp" />
             </LinearLayout>
 
-            <Button
-                android:id="@+id/buttonCalculate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Calculate Monthly Payment" />
-
         </LinearLayout>
-
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
