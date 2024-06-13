@@ -134,7 +134,7 @@
                 </LinearLayout>
 
                 <SeekBar
-                    android:id="@+id/seekBar"
+                    android:id="@+id/seekBarAmortization"
                     android:layout_width="match_parent"
                     android:layout_height="29dp" />
             </LinearLayout>
@@ -165,7 +165,7 @@
                 </LinearLayout>
 
                 <SeekBar
-                    android:id="@+id/seekBar1"
+                    android:id="@+id/seekBarFrequency"
                     android:layout_width="match_parent"
                     android:layout_height="40dp" />
             </LinearLayout>
