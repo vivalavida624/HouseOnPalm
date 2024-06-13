@@ -10,7 +10,10 @@ import com.bumptech.glide.Glide
 import com.example.houseonplam.R
 import com.example.houseonplam.models.Listing
 
-class ListingAdapter(private var listings: List<Listing>) : RecyclerView.Adapter<ListingAdapter.ListingViewHolder>() {
+class ListingAdapter(
+    private var listings: List<Listing>,
+    private val onItemClick: (Listing) -> Unit
+) : RecyclerView.Adapter<ListingAdapter.ListingViewHolder>() {
 
     class ListingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val listingImageView: ImageView = itemView.findViewById(R.id.listingImageView)
@@ -30,6 +33,10 @@ class ListingAdapter(private var listings: List<Listing>) : RecyclerView.Adapter
         Glide.with(holder.itemView.context)
             .load(listing.imageUrl)
             .into(holder.listingImageView)
+
+        holder.itemView.setOnClickListener {
+            onItemClick(listing)
+        }
     }
 
     override fun getItemCount(): Int {

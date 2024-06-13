@@ -65,10 +65,27 @@
             app:argType="string" />
     </fragment>
 
+    <fragment
+        android:id="@+id/navigation_house_detail"
+        android:name="com.example.houseonplam.ui.house.HouseDetailFragment"
+        android:label="House Detail"
+        tools:layout="@layout/fragment_house_detail">
+        <argument
+            android:name="housePrice"
+            app:argType="string" />
+        <argument
+            android:name="houseAddress"
+            app:argType="string" />
+        <!-- 添加其他参数 -->
+    </fragment>
+
     <action
         android:id="@+id/action_brokerDetailFragment_to_brokerListingsFragment"
         app:destination="@id/navigation_broker_listings" />
 
+    <action
+        android:id="@+id/action_brokerListingsFragment_to_houseDetailFragment"
+        app:destination="@id/navigation_house_detail" />
 
 
 </navigation>

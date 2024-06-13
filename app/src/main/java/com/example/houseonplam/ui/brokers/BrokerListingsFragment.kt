@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.houseonplam.R
 import com.example.houseonplam.databinding.FragmentBrokerListingsBinding
 import com.example.houseonplam.models.Listing
 
@@ -29,7 +29,13 @@ class BrokerListingsFragment : Fragment() {
 
         // 设置RecyclerView
         binding.listingsRecyclerView.layoutManager = LinearLayoutManager(context)
-        listingAdapter = ListingAdapter(listingList)
+        listingAdapter = ListingAdapter(listingList) { listing ->
+            val action = BrokerListingsFragmentDirections.actionBrokerListingsFragmentToHouseDetailFragment(
+                housePrice = listing.price,
+                houseAddress = listing.address
+            )
+            findNavController().navigate(action)
+        }
         binding.listingsRecyclerView.adapter = listingAdapter
 
         return root

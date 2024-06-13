@@ -7,6 +7,9 @@
     <string name="title_calculator">Calculator</string>
     <string name="title_more">More</string>
     <string name="listing_image">Listing Image</string>
-    <string name="listing_price">Price</string>
-    <string name="listing_address">Address</string>
+    <string name="listing_price">Listing Price</string>
+    <string name="listing_address">Listing Address</string>
+    <string name="house_image_desc">House Image Description</string>
+    <string name="house_price_placeholder">House Price</string>
+    <string name="house_address_placeholder">House Address</string>
 </resources>
