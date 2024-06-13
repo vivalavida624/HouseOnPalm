@@ -112,7 +112,9 @@ class CalculatorFragment(): Fragment() {
             var monthlyPay= calculatorViewModel.calcMonthlyPayment(
                 salePrice.text.toString().toDouble(),
                 downPayment.text.toString().toDouble(),
-                interestRate.text.toString().toDouble()
+                interestRate.text.toString().toDouble(),
+                amort.toString().toDouble(),
+                freq.toString().toInt()
             ).toString()
             monthly.text = "$ $monthlyPay."
         }

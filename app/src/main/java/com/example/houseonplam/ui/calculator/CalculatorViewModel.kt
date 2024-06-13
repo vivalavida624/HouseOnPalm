@@ -13,10 +13,28 @@ class CalculatorViewModel: ViewModel() {
     }
     val text: LiveData<String> = _text
 
-    fun calcMonthlyPayment(salePrice: Double, downPayment: Double, interestRate: Double): BigDecimal? {
+    fun calcMonthlyPayment(
+        salePrice: Double,
+        downPayment: Double,
+        interestRate: Double,
+        amortization: Double,
+        frequency: Int
+    ): BigDecimal? {
         // assuming 25 years for the loan and payments are monthly (12 per year)
         val interestRatePerc = interestRate / 100
-        var monthlyPay = ((salePrice - downPayment) * (interestRatePerc / 12)) / (1 - (1 / (Math.pow(1 + (interestRatePerc / 12), 300.0))))
+        var freqYear = 0
+
+        if(frequency == 1) {
+            freqYear = 52
+        } else if(frequency == 2) {
+            freqYear = 24
+        } else if(frequency == 3) {
+            freqYear = 12
+        } else if(frequency == 4) {
+            freqYear = 6
+        }
+
+        val monthlyPay = ((salePrice - downPayment) * (interestRatePerc / freqYear)) / (1 - (1 / (Math.pow(1 + (interestRatePerc / freqYear), (freqYear * amortization)))))
         return BigDecimal(monthlyPay).setScale(2, RoundingMode.CEILING)
     }
 
