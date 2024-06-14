@@ -1,11 +1,11 @@
-package com.example.houseonplam.ui.house
+package com.example.houseonpalm.ui.house
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.houseonplam.databinding.FragmentHouseDetailBinding
+import com.example.houseonpalm.databinding.FragmentHouseDetailBinding
 
 class HouseDetailFragment : Fragment() {
 

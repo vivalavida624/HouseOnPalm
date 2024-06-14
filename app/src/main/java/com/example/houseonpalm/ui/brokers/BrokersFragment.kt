@@ -1,4 +1,4 @@
-package com.example.houseonplam.ui.brokers
+package com.example.houseonpalm.ui.brokers
 
 import android.os.Bundle
 import android.text.Editable
@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.houseonplam.databinding.FragmentBrokersBinding
+import com.example.houseonpalm.databinding.FragmentBrokersBinding
 
 class BrokersFragment : Fragment() {
 

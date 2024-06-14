@@ -1,4 +1,4 @@
-package com.example.houseonplam.ui.brokers
+package com.example.houseonpalm.ui.brokers
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,8 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.houseonplam.R
-import com.example.houseonplam.models.Listing
+import com.example.houseonpalm.R
+import com.example.houseonpalm.models.Listing
 
 class ListingAdapter(
     private var listings: List<Listing>,

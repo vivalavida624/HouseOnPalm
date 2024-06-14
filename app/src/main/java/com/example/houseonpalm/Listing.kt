@@ -1,4 +1,4 @@
-package com.example.houseonplam.models
+package com.example.houseonpalm.models
 
 data class Listing(
     val imageUrl: String,

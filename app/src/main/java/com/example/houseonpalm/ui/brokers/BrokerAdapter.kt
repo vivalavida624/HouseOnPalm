@@ -1,11 +1,11 @@
-package com.example.houseonplam.ui.brokers
+package com.example.houseonpalm.ui.brokers
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.houseonplam.R
+import com.example.houseonpalm.R
 
 class BrokerAdapter(
     private var brokers: List<Broker>,

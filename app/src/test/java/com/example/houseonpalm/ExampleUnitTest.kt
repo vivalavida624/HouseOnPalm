@@ -1,4 +1,4 @@
-package com.example.houseonplam
+package com.example.houseonpalm
 
 import org.junit.Test
 

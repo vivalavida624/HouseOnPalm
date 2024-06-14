@@ -1,4 +1,4 @@
-package com.example.houseonplam
+package com.example.houseonpalm
 
 import android.content.Intent
 import android.os.Bundle
