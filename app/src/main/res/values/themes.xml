@@ -15,7 +15,11 @@
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <!-- Custom colors for components -->
         <item name="colorAccent">@color/accentColor</item>
+    </style>
 
+    <!-- Splash screen theme -->
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/colorPrimary</item>
     </style>
 </resources>
 
