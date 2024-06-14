@@ -1,6 +1,7 @@
 package com.example.houseonplam.ui.calculator
 
 import android.annotation.SuppressLint
+import android.icu.text.DecimalFormat
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +20,7 @@ class CalculatorFragment(): Fragment() {
     private var _binding: FragmentCalculatorBinding? = null
     private val binding get() = _binding!!
 
+    
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,20 +46,28 @@ class CalculatorFragment(): Fragment() {
         val amortizationDisplay: TextView = binding.textAmortizationDisplay
         var startPointAmort = 0
         var endPointAmort = 0
-        var amort = 0
+        var amort = 25
 
         // seek bar frequency
         val frequency: SeekBar = binding.seekBarFrequency
         val frequencyDisplay: TextView = binding.textFrequencyDisplay
         var startPointFreq = 0
         var endPointFreq = 0
-        var freq = 0
+        var freq = 3
 
         // Monthly Display
         var monthly: TextView = binding.textMonthlyPaymentDisplay
 
         // Button
         val buttonCalculate: Button = binding.buttonCalculate
+        val buttonRestart: Button = binding.buttonRestart
+
+        /*
+        fun formatter(n: Double) {
+            DecimalFormat("#,###.##").format(n)
+        }
+
+         */
 
         amortization.setOnSeekBarChangeListener(
             object : SeekBar.OnSeekBarChangeListener {
@@ -109,23 +119,25 @@ class CalculatorFragment(): Fragment() {
         })
 
         buttonCalculate.setOnClickListener {
-            var monthlyPay= calculatorViewModel.calcMonthlyPayment(
+            var monthlyPay = calculatorViewModel.calcMonthlyPayment(
                 salePrice.text.toString().toDouble(),
                 downPayment.text.toString().toDouble(),
                 interestRate.text.toString().toDouble(),
                 amort.toString().toDouble(),
                 freq.toString().toInt()
             ).toString()
-            monthly.text = "$ $monthlyPay."
+
+            monthly.text = "$ " + DecimalFormat("#,###.##").format(monthlyPay.toDouble()).toString()
         }
 
-
-        /*
-        calculatorViewModel.text.observe(viewLifecycleOwner) {
-            monthly.text = it
+        buttonRestart.setOnClickListener {
+            salePrice.text = ""
+            downPayment.text = ""
+            interestRate.text = ""
+            amortization.progress = 25
+            frequency.progress = 3
+            monthly.text = "$ 0"
         }
-
-         */
 
         return root
     }

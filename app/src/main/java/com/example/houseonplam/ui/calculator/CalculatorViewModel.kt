@@ -38,21 +38,4 @@ class CalculatorViewModel: ViewModel() {
         return BigDecimal(monthlyPay).setScale(2, RoundingMode.CEILING)
     }
 
-    /*
-
-    val salePrice : Int = 0
-    val downPayment: Int = 0
-    val interestRate: Double = 0.0
-    val amortization: Int = 0
-    val frequency: Int = 0
-    var monthly: Double = 0.0
-
-    // this is the formula for the mortgage
-    fun calcMonthlyPayment() {
-
-        monthly = ((salePrice - downPayment) * (interestRate / 12) * (1 + (interestRate / 12))) / ((1 + (interestRate / 12)) - 1)
-
-    }
-     */
-
 }
