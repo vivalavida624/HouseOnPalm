@@ -140,14 +140,19 @@ class CalculatorFragment(): Fragment() {
         })
 
         buttonCalculate.setOnClickListener {
-            var monthlyPay = calculatorViewModel.calcMonthlyPayment(
-                salePriceNum,
-                downPaymentNum,
-                interestRateNum,
-                amort.toString().toDouble(),
-                freq.toString().toInt()
-            ).toString()
-
+            var monthlyPay = ""
+            if (salePriceNum <= 0.0 || downPaymentNum <= 0.0 || interestRateNum <= 0.0) {
+                val message: CharSequence = "No input value can be zero or negative!"
+                Toast.makeText(root.context, message, Toast.LENGTH_SHORT).show()
+            } else {
+                monthlyPay = calculatorViewModel.calcMonthlyPayment(
+                    salePriceNum,
+                    downPaymentNum,
+                    interestRateNum,
+                    amort.toString().toDouble(),
+                    freq.toString().toInt()
+                ).toString()
+            }
             monthly.text = "$ " + DecimalFormat("#,###.##").format(monthlyPay.toDouble()).toString()
         }
 

@@ -23,7 +23,6 @@ class CalculatorViewModel: ViewModel() {
         frequency: Int
     ): BigDecimal? {
 
-        // assuming 25 years for the loan and payments are monthly (12 per year)
         val interestRatePerc = interestRate / 100
         var freqYear = 0
 
@@ -39,6 +38,7 @@ class CalculatorViewModel: ViewModel() {
 
         val monthlyPay = ((salePrice - downPayment) * (interestRatePerc / freqYear)) / (1 - (1 / (Math.pow(1 + (interestRatePerc / freqYear), (freqYear * amortization)))))
         return BigDecimal(monthlyPay).setScale(2, RoundingMode.CEILING)
+
     }
 
 }

@@ -26,7 +26,7 @@ class CalculatorViewModelTest {
             amortization,
             frequency
         )
-        Assert.assertTrue(result.toString().toDouble() >= 0.0)
+        assertTrue(result.toString().toDouble() >= 0.0)
     }
 
     @BeforeEach
