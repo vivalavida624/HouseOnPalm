@@ -12,7 +12,7 @@ class CalculatorViewModelTest {
     private val calculation = CalculatorViewModel()
 
     @Test
-    fun resultMustBeBiggerThanZero_ReturnsTrue(){
+    fun resultMustBeBiggerThanZero_ReturnsTrue() {
         val salePrice = 1000000.0
         val downPayment = 100000.0
         val interestRate = 5.0
