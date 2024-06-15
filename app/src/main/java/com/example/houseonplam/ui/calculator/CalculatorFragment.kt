@@ -10,10 +10,12 @@ import android.widget.Button
 import android.widget.SeekBar
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatSeekBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.houseonplam.databinding.FragmentCalculatorBinding
+import org.jetbrains.annotations.TestOnly
 
 class CalculatorFragment(): Fragment() {
 
@@ -37,6 +39,24 @@ class CalculatorFragment(): Fragment() {
         val salePrice : TextView = binding.editTextSalePrice
         val downPayment: TextView = binding.editTextDownPayment
         val interestRate: TextView = binding.editTextInterestRate
+
+        /*
+        if(salePrice.text.toString().toDouble() < downPayment.text.toString().toDouble() || interestRate.text.toString().toDouble() != 0.0) {
+            Toast.makeText(this, "Input incorrect", Toast.LENGTH_SHORT).show()
+        }
+
+         */
+
+        val salePriceNum: Double = salePrice.text.toString().toDouble()
+        val downPaymentNum: Double = downPayment.text.toString().toDouble()
+        val interestRateNum: Double = interestRate.text.toString().toDouble()
+
+        /*
+        Tried to change the display while user was typing but failed
+        salePrice.text = "$ " + DecimalFormat("#,###.##").format(salePriceNum)
+        downPayment.text = "$ " + DecimalFormat("#,###.##").format(downPaymentNum)
+        interestRate.text = "% " + DecimalFormat("#.##").format(interestRateNum)
+         */
 
         // progress circle bar
         //val progress: ProgressBar = binding.progressBar
@@ -68,6 +88,7 @@ class CalculatorFragment(): Fragment() {
         }
 
          */
+
 
         amortization.setOnSeekBarChangeListener(
             object : SeekBar.OnSeekBarChangeListener {
@@ -120,9 +141,9 @@ class CalculatorFragment(): Fragment() {
 
         buttonCalculate.setOnClickListener {
             var monthlyPay = calculatorViewModel.calcMonthlyPayment(
-                salePrice.text.toString().toDouble(),
-                downPayment.text.toString().toDouble(),
-                interestRate.text.toString().toDouble(),
+                salePriceNum,
+                downPaymentNum,
+                interestRateNum,
                 amort.toString().toDouble(),
                 freq.toString().toInt()
             ).toString()
@@ -146,4 +167,5 @@ class CalculatorFragment(): Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }

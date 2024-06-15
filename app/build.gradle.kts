@@ -49,6 +49,7 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     testImplementation(libs.junit)
+    testImplementation("junit:junit:4.12")
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
@@ -59,4 +60,14 @@ dependencies {
 
     implementation("androidx.fragment:fragment:1.7.1")
     implementation("androidx.fragment:fragment-ktx:1.7.1")
+
+    testImplementation("junit:junit:1.1.5")
+    testImplementation("androidx.test.ext:junit-ktx:1.1.5")
+    testImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    testImplementation("androidx.fragment:fragment-testing:1.8.0")
+
+
+    testImplementation("com.google.truth:truth:1.0.1")
+    androidTestImplementation("com.google.truth:truth:1.0.1")
+    androidTestImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
 }

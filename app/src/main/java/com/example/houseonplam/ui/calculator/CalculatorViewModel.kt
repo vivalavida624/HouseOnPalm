@@ -1,8 +1,10 @@
 package com.example.houseonplam.ui.calculator
 
+import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import org.jetbrains.annotations.TestOnly
 import java.math.BigDecimal
 import java.math.RoundingMode
 
@@ -20,6 +22,7 @@ class CalculatorViewModel: ViewModel() {
         amortization: Double,
         frequency: Int
     ): BigDecimal? {
+
         // assuming 25 years for the loan and payments are monthly (12 per year)
         val interestRatePerc = interestRate / 100
         var freqYear = 0
