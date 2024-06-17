@@ -8,14 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.SeekBar
-import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.widget.AppCompatSeekBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.houseonplam.databinding.FragmentCalculatorBinding
-import org.jetbrains.annotations.TestOnly
 
 class CalculatorFragment(): Fragment() {
 
@@ -36,20 +33,13 @@ class CalculatorFragment(): Fragment() {
         val root: View = binding.root
 
         // variables to calculate from editText
-        val salePrice : TextView = binding.editTextSalePrice
+        val salePrice: TextView = binding.editTextSalePrice
         val downPayment: TextView = binding.editTextDownPayment
         val interestRate: TextView = binding.editTextInterestRate
 
-        /*
-        if(salePrice.text.toString().toDouble() < downPayment.text.toString().toDouble() || interestRate.text.toString().toDouble() != 0.0) {
-            Toast.makeText(this, "Input incorrect", Toast.LENGTH_SHORT).show()
-        }
-
-         */
-
-        val salePriceNum: Double = salePrice.text.toString().toDouble()
-        val downPaymentNum: Double = downPayment.text.toString().toDouble()
-        val interestRateNum: Double = interestRate.text.toString().toDouble()
+        var salePriceNum : Double
+        var downPaymentNum : Double
+        var interestRateNum : Double
 
         /*
         Tried to change the display while user was typing but failed
@@ -73,22 +63,14 @@ class CalculatorFragment(): Fragment() {
         val frequencyDisplay: TextView = binding.textFrequencyDisplay
         var startPointFreq = 0
         var endPointFreq = 0
-        var freq = 3
+        var freq = 12
 
         // Monthly Display
-        var monthly: TextView = binding.textMonthlyPaymentDisplay
+        val monthly: TextView = binding.textMonthlyPaymentDisplay
 
         // Button
         val buttonCalculate: Button = binding.buttonCalculate
         val buttonRestart: Button = binding.buttonRestart
-
-        /*
-        fun formatter(n: Double) {
-            DecimalFormat("#,###.##").format(n)
-        }
-
-         */
-
 
         amortization.setOnSeekBarChangeListener(
             object : SeekBar.OnSeekBarChangeListener {
@@ -117,15 +99,18 @@ class CalculatorFragment(): Fragment() {
                 progress: Int,
                 fromUser: Boolean
             ) {
-                freq = progress
-                if (freq == 1) {
+                if (progress == 1) {
                     frequencyDisplay.text = "Weekly"
-                } else if (freq == 2) {
+                    freq = 52
+                } else if (progress == 2) {
                     frequencyDisplay.text = "Bi-Weekly"
-                } else if (freq == 3) {
+                    freq = 24
+                } else if (progress == 3) {
                     frequencyDisplay.text = "Monthly"
-                } else if (freq == 4) {
+                    freq = 12
+                } else if (progress == 4) {
                     frequencyDisplay.text = "Every 2 months"
+                    freq = 6
                 }
             }
 
@@ -140,20 +125,40 @@ class CalculatorFragment(): Fragment() {
         })
 
         buttonCalculate.setOnClickListener {
-            var monthlyPay = ""
+            if (salePrice.text.isNullOrBlank()) {
+                salePrice.text = "0.0"
+            }
+
+            if (downPayment.text.isNullOrBlank()) {
+                downPayment.text = "0.0"
+            }
+
+            if (interestRate.text.isNullOrBlank()) {
+                interestRate.text = "0.0"
+            }
+
+            salePriceNum = salePrice.text.toString().toDouble()
+            downPaymentNum = downPayment.text.toString().toDouble()
+            interestRateNum = interestRate.text.toString().toDouble()
+
             if (salePriceNum <= 0.0 || downPaymentNum <= 0.0 || interestRateNum <= 0.0) {
                 val message: CharSequence = "No input value can be zero or negative!"
                 Toast.makeText(root.context, message, Toast.LENGTH_SHORT).show()
             } else {
-                monthlyPay = calculatorViewModel.calcMonthlyPayment(
+                val monthlyPay = calculatorViewModel.calcMonthlyPayment(
                     salePriceNum,
                     downPaymentNum,
-                    interestRateNum,
+                    interestRateNum / 100,
                     amort.toString().toDouble(),
-                    freq.toString().toInt()
+                    freq
                 ).toString()
+                monthly.text = "$ " + DecimalFormat("#,###.##").format(monthlyPay.toDouble()).toString()
             }
-            monthly.text = "$ " + DecimalFormat("#,###.##").format(monthlyPay.toDouble()).toString()
+            salePrice.text = ""
+            downPayment.text = ""
+            interestRate.text = ""
+            amortization.progress = 25
+            frequency.progress = 3
         }
 
         buttonRestart.setOnClickListener {
@@ -164,7 +169,6 @@ class CalculatorFragment(): Fragment() {
             frequency.progress = 3
             monthly.text = "$ 0"
         }
-
         return root
     }
 
